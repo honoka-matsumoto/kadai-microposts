@@ -1,0 +1,19 @@
+<ul class="list-unstyled">
+    <% @favorites.each do |favorite| %>
+      <li class="media mb-3">
+          <img class="mr-2 rouded" src="<%= gravatar_url(favorite.micropost.user, { size:50 }) %>" alt="">
+          <div class="media-body">
+              <div>
+                  <%= link_to favorite.micropost.user.name, user_path(favorite.user) %> <span class="text-muted">posted_at <%= favorite.created_at %></span>
+              </div>
+              <div>
+                  <p class="b-0"><%= favorite.micropost.content %></p>
+                  
+              </div>
+              
+          </div>
+      </li>
+    <% end %>
+</ul>
+
+

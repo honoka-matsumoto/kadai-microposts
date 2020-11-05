@@ -21,6 +21,11 @@ class MicropostsController < ApplicationController
     redirect_back(fallback_location: root_path)
   end
   
+  def likes
+    @micropost = Micropost.find(params[:id])
+    @likes = @micropost.likes.page(params[:page])
+  end
+
   private
   
   def micropost_params
@@ -33,4 +38,5 @@ class MicropostsController < ApplicationController
       redirect_to root_url
     end
   end
+  
 end
